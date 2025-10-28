@@ -6,6 +6,13 @@ import tree_sitter_python as tspython
 import tree_sitter_java as tsjava
 import tree_sitter_c_sharp as tscsharp
 import tree_sitter_typescript as tstypescript
+import tree_sitter_yaml as yaml
+import tree_sitter_json as json
+import tree_sitter_xml as tsxml
+import tree_sitter_dockerfile as dockerfile
+import tree_sitter_toml as toml
+from tree_sitter_language_pack import get_language, get_parser
+
 import pyrsistent
 
 from astchunk.astnode import ASTNode
@@ -37,6 +44,18 @@ class ASTChunkBuilder():
             self.parser = ts.Parser(ts.Language(tscsharp.language()))
         elif self.language == "typescript":
             self.parser = ts.Parser(ts.Language(tstypescript.language_tsx()))
+        elif self.language == "yaml":
+            self.parser = ts.Parser(ts.Language(yaml.language()))
+        elif self.language == "json":
+            self.parser = ts.Parser(ts.Language(json.language()))
+        elif self.language == "xml":
+            self.parser = ts.Parser(ts.Language(tsxml.language_xml()))
+        elif self.language == "dockerfile":
+            self.parser = ts.Parser(ts.Language(dockerfile.language()))
+        elif self.language == "toml":
+            self.parser = ts.Parser(ts.Language(toml.language()))
+        elif self.language == "properties":
+            self.parser = get_parser("properties")
         else:
             raise ValueError(f"Unsupported Programming Language: {self.language}!")
 
