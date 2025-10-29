@@ -54,10 +54,14 @@ class ASTChunkBuilder():
             self.parser = ts.Parser(ts.Language(dockerfile.language()))
         elif self.language == "toml":
             self.parser = ts.Parser(ts.Language(toml.language()))
-        elif self.language == "properties":
-            self.parser = get_parser("properties")
         else:
-            raise ValueError(f"Unsupported Programming Language: {self.language}!")
+            try:
+                self.parser = get_parser(self.language)
+            except Exception as e:
+                raise ValueError(
+                    f"Unsupported Programming Language: {self.language}!"
+                    f"Language not available in tree-sitter-language-pack. Error: {e}"
+                    )
 
     # ------------------------------ #
     #            Step #1             #
