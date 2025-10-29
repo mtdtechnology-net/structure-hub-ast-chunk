@@ -61,7 +61,7 @@ ASTChunk depends on [tree-sitter](https://tree-sitter.github.io/tree-sitter/) fo
 ```bash
 # Core dependencies (automatically installed)
 pip install numpy pyrsistent tree-sitter
-pip install tree-sitter-python tree-sitter-java tree-sitter-c-sharp tree-sitter-typescript tree-sitter-yaml tree-sitter-dockerfile tree-sitter-xml tree-sitter-json tree-sitter-toml tree-sitter-language-pack
+pip install tree-sitter-python tree-sitter-java tree-sitter-c-sharp tree-sitter-typescript tree-sitter-yaml tree-sitter-dockerfile tree-sitter-xml tree-sitter-json tree-sitter-toml tree-sitter-hcl tree-sitter-language-pack
 ```
 
 ## Configuration Options

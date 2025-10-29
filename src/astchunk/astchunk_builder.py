@@ -11,6 +11,7 @@ import tree_sitter_json as json
 import tree_sitter_xml as tsxml
 import tree_sitter_dockerfile as dockerfile
 import tree_sitter_toml as toml
+import tree_sitter_hcl as tshcl
 from tree_sitter_language_pack import get_language, get_parser
 
 import pyrsistent
@@ -54,6 +55,8 @@ class ASTChunkBuilder():
             self.parser = ts.Parser(ts.Language(dockerfile.language()))
         elif self.language == "toml":
             self.parser = ts.Parser(ts.Language(toml.language()))
+        elif self.language == "hcl" or self.language == "terraform":
+            self.parser = ts.Parser(ts.Language(tshcl.language()))
         else:
             try:
                 self.parser = get_parser(self.language)
