@@ -10,4 +10,5 @@ tree-sitter-dockerfile
 tree-sitter-xml
 tree-sitter-json
 tree-sitter-toml
+tree-sitter-hcl
 tree-sitter-language-pack
